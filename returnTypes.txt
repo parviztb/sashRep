@@ -1,0 +1,26 @@
+
+Django uses request and response objects to pass state through the system.
+
+When a page is requested, Django creates an HttpRequest object that contains metadata about the request. Then Django loads the 
+appropriate view, passing the HttpRequest as the first argument to the view function. Each view is responsible for returning an HttpResponse object.
+
+This document explains the APIs for HttpRequest and HttpResponse objects, which are defined in the django.http module.
+
+return HttpResponseRedirect(reverse("index"))
+
+ return render(request, "network/login.html", {
+                "message": "Invalid username and/or password."
+return render(request=request, template_name="auctions/upload.html", 
+     context={'form':form, 'movies':movies})
+
+return HttpResponseRedirect(reverse("index"))
+
+>> from django.http import HttpResponse
+>>> response = HttpResponse("Here's the text of the web page.")
+>>> response = HttpResponse("Text only, please.", content_type="text/plain")
+>>> response = HttpResponse(b'Bytestrings are also accepted.')
+>>> response = HttpResponse(memoryview(b'Memoryview as well.'))
+
+>>> response = HttpResponse()
+>>> response.write("<p>Here's the text of the web page.</p>")
+>>> response.write("<p>Here's another paragraph.</p>")
